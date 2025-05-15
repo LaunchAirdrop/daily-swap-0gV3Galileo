@@ -3,10 +3,12 @@
 # Daily Swap 0g V3 Galileo
 A daily swap automation bot for interacting with the 0G V3 Galileo USDT ETH and BTC.
 
+
 ## Feature bot
 - Automated wallet login and authentication
 - Auto approve
 - Execute transaction for USDT, ETH, and BTC
+- Bot has random tokens and random times so the system doesn't detect that you are using a bot
 - Multi-wallet support via environment variables
 
 ### * Don't forget to claim all faucet: 
