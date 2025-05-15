@@ -38,6 +38,8 @@ Run the script
 node bot.js
 ```
 
+### * If this bot doesn't work, you can swap manually first.
+
 # The bot will:
 1. Login wallet
 2. Display ETH Information
