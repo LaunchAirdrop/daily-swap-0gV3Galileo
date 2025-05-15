@@ -5,6 +5,7 @@ A daily swap automation bot for interacting with the 0G V3 Galileo USDT ETH and 
 
 ## Feature bot
 - Automated wallet login and authentication
+- Auto approve
 - Execute transaction for USDT, ETH, and BTC
 - Multi-wallet support via environment variables
 
