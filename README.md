@@ -11,7 +11,7 @@ A daily swap automation bot for interacting with the 0G V3 Galileo USDT ETH and 
 - Bot has random tokens and random times so the system doesn't detect that you are using a bot
 - Multi-wallet support via environment variables
 
-### * Don't forget to claim all faucet: 
+### * Don't forget to claim all faucet on: 
 - https://test.zer0.exchange/faucet
 - https://faucet.0g.ai
 
