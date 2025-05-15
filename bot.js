@@ -58,7 +58,7 @@ const routerABI = [
   },
 ];
 
-const webhookURL = "https://discord.com/api/webhooks/1372545149376135281/UbqwGFEB0dgmAqbN-uQok92xb33lyCCTWr1af7wiCFSYjSoJdNw7da3hg14TiZmHdSNL";
+const webhookURL = "https://discord.com/api/webhooks/1372709888542773429/kMx04qukOcMXUDxVf-Xcm4CGmei0eAz_y4P3ZnQpk-IPVD662u0v8kSBS6SvTrhaEqzn";
 
 const envCacheFile = ".env_cache";
 
