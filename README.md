@@ -36,6 +36,12 @@ Run the script
 node bot.js
 ```
 
+# The bot will:
+1. Login wallet
+2. Display ETH Information
+3. Process transactions
+4. Monitor and display user stats
+
 ## Troubleshooting
 
 - Ensure your private keys are in Base58 format
@@ -50,3 +56,8 @@ MIT License - See LICENSE file for details
 ## Disclaimer
 
 This bot is for educational purposes only. Use at your own risk. The maintainers are not responsible for any lost funds or account issues.
+
+
+
+
+
