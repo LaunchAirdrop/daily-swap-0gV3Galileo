@@ -36,8 +36,17 @@ Run the script
 node bot.js
 ```
 
-# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=🔥+Thank+You+for+Your+Support!)](https://git.io/typing-svg)
+## Troubleshooting
 
+- Ensure your private keys are in Base58 format
+- Verify your wallets
+- Check approving and swapping
+- Monitor console for error messages
 
-## Your support means a lot for the development of this project! ❤️
+## License
 
+MIT License - See LICENSE file for details
+
+## Disclaimer
+
+This bot is for educational purposes only. Use at your own risk. The maintainers are not responsible for any lost funds or account issues.
