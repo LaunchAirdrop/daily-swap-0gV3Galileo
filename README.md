@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Welcome+To+LaunchAirdrop)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Welcome+To+Launch+Airdrop)](https://git.io/typing-svg)
 
 # Daily Swap 0g V3 Galileo
 A daily swap automation bot for interacting with the 0G V3 Galileo USDT ETH and BTC.
