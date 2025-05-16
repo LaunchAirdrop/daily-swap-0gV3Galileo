@@ -42,7 +42,7 @@ node bot.js
 
 # The bot will:
 1. Login wallet
-2. Display ETH Information
+2. Display information
 3. Process transactions
 4. Monitor and display user stats
 
