@@ -2,7 +2,7 @@
   "name": "daily-swap-bot",
   "version": "1.0.0",
   "main": "bot.js",
-  "type": "module",  // Add this line to treat files as ES modules
+  "type": "module", 
   "dependencies": {
     "axios": "^1.6.0",
     "dotenv": "^16.3.1",
