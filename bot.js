@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import fs from "fs";
 import axios from "axios";
+import path from "path";
 import CryptoJS from "crypto-js";
 import dotenv from 'dotenv';
 dotenv.config();
