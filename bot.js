@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
-const fs = require("fs");
-const axios = require("axios");
+import fs from "fs";
+import axios from "axios";
 
 require("dotenv").config();
 
