@@ -1,11 +1,11 @@
-const { ethers } = require("ethers");
-const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
-const https = require("https");
-const CryptoJS = require("crypto-js");
-
-require("dotenv").config();
+import { ethers } from "ethers";
+import fs from "fs";
+import axios from "axios";
+import path from "path";
+import CryptoJS from "crypto-js";
+import https from "https";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
